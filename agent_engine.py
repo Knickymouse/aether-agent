@@ -106,7 +106,6 @@ def run_autonomous_thinking_loop(max_iterations: int = 3) -> dict:
         gen_response = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=2000,
-            temperature=0.8,
             messages=[{"role": "user", "content": generator_prompt}]
         )
         current_idea = gen_response.content[0].text
@@ -135,7 +134,6 @@ def run_autonomous_thinking_loop(max_iterations: int = 3) -> dict:
         crit_response = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=800,
-            temperature=0.2,
             messages=[{"role": "user", "content": critic_prompt}]
         )
         
